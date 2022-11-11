@@ -1,5 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
+@import url(https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap);
 body{
-   font-family: 'Open Sans',serif;
+   font-family: 'Dancing Script',serif;
+   padding: 0px;
+   margin: 0px;
+   font-size: 3rem;
+   text-align: center;
+}
+
+.banner {
+    height: 5rem;
+    background-color: #ff009e;
+    color: white;
+    margin: 0%;
+    padding: 10px;
 }
