@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,69 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="banner">JavaScript Singles </div>
-    <div class="wrapper"></div>
-    <div class="main"></div>
+    <div class="section">
+        <div class="filter">
+            Filter Your Matches
+            <button onclick="displayOptions()" class="filterButton">Filter</button>
+        </div>
+        <div class="options">
+            <div class="filterOptions">
+                I am interested in... 
+                <div class="male">Males</div>
+                <div class="female">Females</div>
+                <div class="any anyGender">Everyone</div>
+                who are 
+                <div class="twenty">20+</div>
+                <div class="thirty">30+</div>
+                <div class="forty">40+</div>
+                <div class="any anyAge">Any</div>
+                and have a
+                <div class="basic">Basic</div>
+                <div class="gold">Gold</div>
+                <div class="platinum">Platinum</div>
+                <div class="any anyPlan">Any</div>
+                plan...
+            </div>
+        </div>
+        <div class="wrapper">
+            <h1>Your Match!</h1>
+            <div class="main">
+                <div class="card">
+                    <div class="image">
+                        <img class="imgOfUser" src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+
+                    </div>
+                    <div class="info">
+                        <div class="main-info">
+                        <p class="name-age"><span class="name">Sarah</span>, <span class="age">24</span></p>
+                        <p class="work">Business Analyst</p>
+                        <p class="location">London, England</p>
+                        <p class="plan">Sarah is a Platinum Member</p>
+
+                     <div class="about"> <span style="padding-bottom: 10px;" >About <span id="name">Sarah</span> </span>  <p class="personality">Bubbly, Adrenaline Junky, Fun To Be Around, Hates Mondays</p> </div> 
+                    </div>
+                    <div class="buttons">
+                            <button class="no">X</button>
+                            <button class="yes">&#9829;</button>
+                    </div>
+                    </div>
+
+                </div>
+                <div class="liked">I Liked
+                </div>
+                <div class="passed">I Passed</div>
+            </div>
+        </div>
+    </div>
+
     <div class="footer"></div>
 
 
 
-    <script src="script.js"></script>
+    <script src="better.js"></script>
 </body>
+
 </html>

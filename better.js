@@ -1,66 +1,158 @@
-let displayingOptions = false
+let genderFilter = "anyGender";
+let ageFilter = "anyAge";
+let planFilter = "anyPlan";
+
+
+let likedUsers = [];
+let passedUsers = [];
+const currentUser = {};
+
+document.querySelector(".male").addEventListener("click", () => {
+    genderFilter = "male";
+    document.querySelector(".male").style.backgroundColor = "black";
+    document.querySelector(".male").style.color = "beige";
+    document.querySelector(".female").style.backgroundColor = "beige";
+    document.querySelector(".female").style.color = "black";
+    document.querySelector(".anyGender").style.backgroundColor = "beige";
+    document.querySelector(".anyGender").style.color = "black";
+
+});
+document.querySelector(".female").addEventListener("click", () => {
+    genderFilter = "female";
+    document.querySelector(".male").style.backgroundColor = "beige";
+    document.querySelector(".male").style.color = "black";
+    document.querySelector(".female").style.backgroundColor = "black";
+    document.querySelector(".female").style.color = "beige";
+    document.querySelector(".anyGender").style.backgroundColor = "beige";
+    document.querySelector(".anyGender").style.color = "black";
+
+});
+document.querySelector(".any").addEventListener("click", () => {
+    genderFilter = "anyGender";
+    document.querySelector(".male").style.backgroundColor = "beige";
+    document.querySelector(".male").style.color = "black";
+    document.querySelector(".female").style.backgroundColor = "beige";
+    document.querySelector(".female").style.color = "black";
+    document.querySelector(".anyGender").style.backgroundColor = "black";
+    document.querySelector(".anyGender").style.color = "beige";
+
+});
+
+document.querySelector(".twenty").addEventListener("click", () => {
+    ageFilter = "twenty";
+    document.querySelector(".twenty").style.backgroundColor = "black";
+    document.querySelector(".twenty").style.color = "beige";
+    document.querySelector(".thirty").style.backgroundColor = "beige";
+    document.querySelector(".thirty").style.color = "black";
+    document.querySelector(".forty").style.backgroundColor = "beige";
+    document.querySelector(".forty").style.color = "black";
+    document.querySelector(".anyAge").style.backgroundColor = "beige";
+    document.querySelector(".anyAge").style.color = "black";
+
+});
+document.querySelector(".thirty").addEventListener("click", () => {
+    ageFilter = "thirty";
+    document.querySelector(".thirty").style.backgroundColor = "black";
+    document.querySelector(".thirty").style.color = "beige";
+    document.querySelector(".twenty").style.backgroundColor = "beige";
+    document.querySelector(".twenty").style.color = "black";
+    document.querySelector(".forty").style.backgroundColor = "beige";
+    document.querySelector(".forty").style.color = "black";
+    document.querySelector(".anyAge").style.backgroundColor = "beige";
+    document.querySelector(".anyAge").style.color = "black";
+
+});
+document.querySelector(".forty").addEventListener("click", () => {
+    ageFilter = "forty";
+    document.querySelector(".forty").style.backgroundColor = "black";
+    document.querySelector(".forty").style.color = "beige";
+    document.querySelector(".twenty").style.backgroundColor = "beige";
+    document.querySelector(".twenty").style.color = "black";
+    document.querySelector(".thirty").style.backgroundColor = "beige";
+    document.querySelector(".thirty").style.color = "black";
+    document.querySelector(".anyAge").style.backgroundColor = "beige";
+    document.querySelector(".anyAge").style.color = "black";
+
+});
+document.querySelector(".anyAge").addEventListener("click", () => {
+    ageFilter = "anyAge";
+    document.querySelector(".anyAge").style.backgroundColor = "black";
+    document.querySelector(".anyAge").style.color = "beige";
+    document.querySelector(".twenty").style.backgroundColor = "beige";
+    document.querySelector(".twenty").style.color = "black";
+    document.querySelector(".thirty").style.backgroundColor = "beige";
+    document.querySelector(".thirty").style.color = "black";
+    document.querySelector(".forty").style.backgroundColor = "beige";
+    document.querySelector(".forty").style.color = "black";
+
+});
+
+document.querySelector(".basic").addEventListener("click", () => {
+    planFilter = "basic";
+    document.querySelector(".basic").style.backgroundColor = "black";
+    document.querySelector(".basic").style.color = "beige";
+    document.querySelector(".gold").style.backgroundColor = "beige";
+    document.querySelector(".gold").style.color = "black";
+    document.querySelector(".platinum").style.backgroundColor = "beige";
+    document.querySelector(".platinum").style.color = "black";
+    document.querySelector(".anyPlan").style.backgroundColor = "beige";
+    document.querySelector(".anyPlan").style.color = "black";
+
+});
+document.querySelector(".gold").addEventListener("click", () => {
+    planFilter = "gold";
+    document.querySelector(".gold").style.backgroundColor = "black";
+    document.querySelector(".gold").style.color = "beige";
+    document.querySelector(".basic").style.backgroundColor = "beige";
+    document.querySelector(".basic").style.color = "black";
+    document.querySelector(".platinum").style.backgroundColor = "beige";
+    document.querySelector(".platinum").style.color = "black";
+    document.querySelector(".anyPlan").style.backgroundColor = "beige";
+    document.querySelector(".anyPlan").style.color = "black";
+
+});
+document.querySelector(".platinum").addEventListener("click", () => {
+    planFilter = "platinum";
+    document.querySelector(".platinum").style.backgroundColor = "black";
+    document.querySelector(".platinum").style.color = "beige";
+    document.querySelector(".basic").style.backgroundColor = "beige";
+    document.querySelector(".basic").style.color = "black";
+    document.querySelector(".gold").style.backgroundColor = "beige";
+    document.querySelector(".gold").style.color = "black";
+    document.querySelector(".anyPlan").style.backgroundColor = "beige";
+    document.querySelector(".anyPlan").style.color = "black";
+
+});
+document.querySelector(".anyPlan").addEventListener("click", () => {
+    planFilter = "anyPlan";
+    document.querySelector(".anyPlan").style.backgroundColor = "black";
+    document.querySelector(".anyPlan").style.color = "beige";
+    document.querySelector(".basic").style.backgroundColor = "beige";
+    document.querySelector(".basic").style.color = "black";
+    document.querySelector(".gold").style.backgroundColor = "beige";
+    document.querySelector(".gold").style.color = "black";
+    document.querySelector(".platinum").style.backgroundColor = "beige";
+    document.querySelector(".platinum").style.color = "black";
+
+});
+
+
+let displayingOptions = false;
 const displayOptions = () => {
     if (displayingOptions === false) {
-    document.querySelector(".options").style.display = "flex";
-    displayingOptions = true}
+        document.querySelector(".options").style.display = "flex";
+        document.querySelector(".filterButton").style.color = "beige";
+        document.querySelector(".filterButton").style.backgroundColor = "black";
+        displayingOptions = true
+    }
     else {
         document.querySelector(".options").style.display = "none";
-        displayingOptions = false
-    }
+        document.querySelector(".filterButton").style.color = "black";
+        document.querySelector(".filterButton").style.backgroundColor = "beige";
+        displayingOptions = false;
+    };
 };
 
-const API = "https://randomuser.me/api/";
-
-const profileRefresh = async () => {
-
-
-    const response = await fetch(API);
-
-    const resultArray = await response.json();
-    const data = resultArray.results[0];
-    console.log(data);
-
-
-
-    passIntoCard(data);
-
-}
-const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-//
-
-const passIntoCard = (data) => {
-    // there is a problem here
-    const name = document.querySelector(".name")
-    const firstName = data.name.first;
-    name.innerHTML = firstName;
-
-    const name2 = document.getElementById("name")
-    const firstName2 = data.name.first;
-    name2.innerHTML = firstName2;
-
-    const age = document.querySelector(".age");
-    age.innerHTML = `${data.dob.age}` 
-
-
-    const userCareer = document.querySelector(".work");
-    userCareer.innerHTML = careers[Math.floor(Math.random()*careers.length)];
-
-    const userPlan = document.querySelector(".plan");
-    userPlan.innerHTML = `${data.name.first} is a ${plans[Math.floor(Math.random()*plans.length)]} member`;
-
-    const location = document.querySelector(".location");
-    location.innerHTML = `${data.location.state}, ${data.location.country}`
-
-    const personality = document.querySelector(".personality")
-    personality.innerHTML = `${capitalizedTraits[Math.floor(Math.random()*capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random()*capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random()*capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random()*capitalizedTraits.length)]} `;
-};
-
-const likeButton = document.querySelector(".no")
-const passButton = document.querySelector(".yes")
-likeButton.addEventListener("click",profileRefresh)
-passButton.addEventListener("click",profileRefresh)
 
 const careers = [
     "Manager",
@@ -112,11 +204,15 @@ const careers = [
     'Auditor',
     'Graduate'];
 
-const plans = [
+
+let plans = [
     "Basic",
     "Gold",
     "Platinum"
-]
+];
+
+console.log(planFilter)
+
 
 const traits = [
     'aback',
@@ -1216,5 +1312,119 @@ const traits = [
     'zesty',
     'zippy',
     'zonked',
-  ];
-const capitalizedTraits = traits.map( (element) =>  element.charAt(0).toUpperCase() + element.slice(1));
+];
+const capitalizedTraits = traits.map((element) => element.charAt(0).toUpperCase() + element.slice(1));
+
+
+const API = "https://randomuser.me/api/";
+const fetchUsers = async () => {
+    const response = await fetch(API);
+    const resultArray = await response.json();
+    const data = resultArray.results[0];
+    console.log(data);
+    return data;
+};
+
+const createUser = async () => {
+
+    const data = await fetchUsers();
+    console.log(data)
+    currentUser.name = data.name.first;
+
+
+    if (ageFilter === "anyAge") {
+        currentUser.age = data.dob.age;
+    } else if (ageFilter === "twenty") {
+        if (data.dob.age >= 20) {
+            currentUser.age = data.dob.age;
+        } else { return }
+    } else if (ageFilter === "thirty") {
+        if (data.dob.age >= 30) {
+            currentUser.age = data.dob.age;
+        } else { return }
+    } else if (ageFilter === "forty") {
+        if (data.dob.age >= 40) {
+            currentUser.age = data.dob.age;
+        } else { return }
+    }
+
+
+
+
+    currentUser.career = careers[Math.floor(Math.random() * careers.length)];
+
+    if (planFilter === "anyPlan") {
+        currentUser.plan = plans[Math.floor(Math.random() * plans.length)];
+    } else if (planFilter === "gold") {
+        currentUser.plan = "Gold"
+    } else if (planFilter === "basic") {
+        currentUser.plan = "Basic";
+    } else if (planFilter === "platinum") {
+        currentUser.plan = "Platinum";
+    };
+
+
+    if (genderFilter === "anyGender") {
+        currentUser.gender = data.gender
+    } else if (ageFilter === "male") {
+        if (data.dob.age >= 20) {
+            currentUser.gender = data.gender
+        } else { return }
+    } else if (ageFilter === "female") {
+        if (data.dob.age >= 30) {
+            currentUser.gender = data.gender
+        } else { return }; 
+    }
+
+
+        currentUser.location = `${data.location.state}, ${data.location.country}`;
+        currentUser.personality = `${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]} `;
+        currentUser.image = data.picture.large;
+
+
+        passIntoCard(currentUser);
+
+    };
+
+
+
+
+
+    const passIntoCard = (data) => {
+        console.log(data);
+        const name = document.querySelector(".name");
+        const firstName = data.name;
+        name.innerHTML = firstName;
+
+        const name2 = document.getElementById("name");
+        const firstName2 = data.name;
+        name2.innerHTML = firstName2;
+
+        const age = document.querySelector(".age");
+        age.innerHTML = data.age;
+
+
+        const userCareer = document.querySelector(".work");
+        userCareer.innerHTML = data.career;
+
+        const userPlan = document.querySelector(".plan");
+        userPlan.innerHTML = `${data.name} is a ${data.plan} member`;
+
+        const location = document.querySelector(".location");
+        location.innerHTML = data.location;
+
+        const personality = document.querySelector(".personality");
+        personality.innerHTML = data.personality;
+
+        const image = document.querySelector(".imgOfUser");
+        image.setAttribute('src', `${data.image}`)
+    };
+
+    const likeButton = document.querySelector(".no");
+    const passButton = document.querySelector(".yes");
+    likeButton.addEventListener("click", createUser);
+    passButton.addEventListener("click", createUser);
+
+
+
+
