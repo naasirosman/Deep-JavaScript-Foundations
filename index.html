@@ -39,18 +39,19 @@
             <h1>Your Match!</h1>
             <div class="main">
                 <div class="card">
+                    <div class="loader"></div>
                     <div class="image">
-                        <img class="imgOfUser" src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                        <img class="imgOfUser" src="" alt="">
 
                     </div>
                     <div class="info">
                         <div class="main-info">
-                        <p class="name-age"><span class="name">Sarah</span>, <span class="age">24</span></p>
+                        <p class="name-age"><span class="name"></span>, <span class="age"></span></p>
                         <p class="work">Business Analyst</p>
                         <p class="location">London, England</p>
-                        <p class="plan">Sarah is a Platinum Member</p>
+                        <p class="plan"></p>
 
-                     <div class="about"> <span style="padding-bottom: 10px;" >About <span id="name">Sarah</span> </span>  <p class="personality">Bubbly, Adrenaline Junky, Fun To Be Around, Hates Mondays</p> </div> 
+                     <div class="about"> <span style="padding-bottom: 10px;" >About <span id="name"></span> </span>  <p class="personality">Bubbly, Adrenaline Junky, Fun To Be Around, Hates Mondays</p> </div> 
                     </div>
                     <div class="buttons">
                             <button class="no">X</button>
@@ -71,6 +72,16 @@
 
 
     <script src="better.js"></script>
+    <script type="text/javascript">
+        const onLoad = () => {
+        document.querySelector(".loader").style.display = "none";
+        document.querySelector(".image").style.display = "block";
+        document.querySelector(".info").style.display = "flex";
+        document.querySelector(".card").style.display = "block";
+
+        };
+        window.onload = onLoad;
+    </script>
 </body>
 
 </html>

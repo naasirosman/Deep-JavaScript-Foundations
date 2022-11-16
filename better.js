@@ -1,3 +1,4 @@
+
 let genderFilter = "anyGender";
 let ageFilter = "anyAge";
 let planFilter = "anyPlan";
@@ -1428,3 +1429,4 @@ const createUser = async () => {
 
 
 
+    window.onload = createUser();
