@@ -1374,59 +1374,76 @@ const createUser = async () => {
     } else if (ageFilter === "female") {
         if (data.dob.age >= 30) {
             currentUser.gender = data.gender
-        } else { return }; 
+        } else { return };
     }
 
 
-        currentUser.location = `${data.location.state}, ${data.location.country}`;
-        currentUser.personality = `${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]} `;
-        currentUser.image = data.picture.large;
+    currentUser.location = `${data.location.state}, ${data.location.country}`;
+    currentUser.personality = `${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]}, ${capitalizedTraits[Math.floor(Math.random() * capitalizedTraits.length)]} `;
+    currentUser.image = data.picture.large;
 
 
-        passIntoCard(currentUser);
+    passIntoCard(currentUser);
 
-    };
-
-
-
-
-
-    const passIntoCard = (data) => {
-        console.log(data);
-        const name = document.querySelector(".name");
-        const firstName = data.name;
-        name.innerHTML = firstName;
-
-        const name2 = document.getElementById("name");
-        const firstName2 = data.name;
-        name2.innerHTML = firstName2;
-
-        const age = document.querySelector(".age");
-        age.innerHTML = data.age;
-
-
-        const userCareer = document.querySelector(".work");
-        userCareer.innerHTML = data.career;
-
-        const userPlan = document.querySelector(".plan");
-        userPlan.innerHTML = `${data.name} is a ${data.plan} member`;
-
-        const location = document.querySelector(".location");
-        location.innerHTML = data.location;
-
-        const personality = document.querySelector(".personality");
-        personality.innerHTML = data.personality;
-
-        const image = document.querySelector(".imgOfUser");
-        image.setAttribute('src', `${data.image}`)
-    };
-
-    const likeButton = document.querySelector(".no");
-    const passButton = document.querySelector(".yes");
-    likeButton.addEventListener("click", createUser);
-    passButton.addEventListener("click", createUser);
+};
 
 
 
 
-    window.onload = createUser();
+
+const passIntoCard = (data) => {
+    console.log(data);
+    const name = document.querySelector(".name");
+    const firstName = data.name;
+    name.innerHTML = firstName;
+
+    const name2 = document.getElementById("name");
+    const firstName2 = data.name;
+    name2.innerHTML = firstName2;
+
+    const age = document.querySelector(".age");
+    age.innerHTML = data.age;
+
+
+    const userCareer = document.querySelector(".work");
+    userCareer.innerHTML = data.career;
+
+    const userPlan = document.querySelector(".plan");
+    userPlan.innerHTML = `${data.name} is a ${data.plan} member`;
+
+    const location = document.querySelector(".location");
+    location.innerHTML = data.location;
+
+    const personality = document.querySelector(".personality");
+    personality.innerHTML = data.personality;
+
+    const image = document.querySelector(".imgOfUser");
+    image.setAttribute('src', `${data.image}`)
+};
+
+const likeButton = document.querySelector(".no");
+const passButton = document.querySelector(".yes");
+likeButton.addEventListener("click", createUser);
+passButton.addEventListener("click", createUser);
+
+const card = document.querySelector(".card")
+card.addEventListener("click", () => {
+    card.style.height = "40rem";
+    card.style.backgroundColor = 'white';
+    card.style.width = '30rem';
+    card.style.padding = '0px';
+    card.style.borderRadius = '25px';
+    card.style.margin = '0px';
+    card.style.padding = '0.5rem';
+    card.style.border = '1px solid black';
+    card.style.boxShadow = '0 0 30px rgba(0, 0, 0, .15)';
+    card.style.display = "flex"
+    card.style.flexDirection = "column"
+    card.style.justifyContent = "center"
+
+    document.querySelector(".start").style.display = "none";
+    card.classList.remove('.cardHover')
+    document.querySelector(".info").style.display = "flex";
+    document.querySelector(".image").style.display = "block";
+});
+createUser()
