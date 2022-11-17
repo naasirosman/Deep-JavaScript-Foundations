@@ -1440,7 +1440,9 @@ card.addEventListener("click", () => {
     card.style.display = "flex"
     card.style.flexDirection = "column"
     card.style.justifyContent = "center"
-
+    card.style.fontSize = "1rem"
+    document.querySelector(".image").style.marginBottom = "25rem";
+    document.querySelector(".info").style.marginTop = "15rem";
     document.querySelector(".start").style.display = "none";
     card.classList.remove('.cardHover')
     document.querySelector(".info").style.display = "flex";

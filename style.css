@@ -258,7 +258,7 @@ img {
 .filterButton {
     background-color: beige;
     border: 1px solid black;
-
+    transition-duration: 0.15s;
 }
 
 .filterButton:hover {
